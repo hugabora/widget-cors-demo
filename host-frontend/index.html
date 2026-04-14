@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Widget Host Frontend</title>
+  </head>
+  <body>
+    <main>
+      <h1>Host Frontend</h1>
+      <p>
+        This page is served independently and loads the widget bundle from the widget-backend.
+      </p>
+    </main>
+
+    <script src="http://localhost:8000/dist/widget.js"></script>
+    <chat-echo-widget backend-url="http://localhost:8000"></chat-echo-widget>
+    <script src="./app.js"></script>
+  </body>
+</html>

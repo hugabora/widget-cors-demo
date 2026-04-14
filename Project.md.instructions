@@ -1,0 +1,36 @@
+# Project
+This is a new project. It will have 3 subprojects a widget-backend and a widget-frontend and a host-frontend. Create these folders.
+
+## The widget:
+It is a fastapi+webcomponent based widget demonstrating connectivity and CORS.
+
+### The widget-backend
+is a simple python fastapi app with 
+- an api endpoint of "/echo", accepting post json and replying with the same data.
+- a "/chat-echo" endpoint which is a websocket endpoint that also echoes every message received
+
+### The widget frontend
+is a webcomponent app, based on typescript and webpack
+It provides a web component that calls the echo service with a fixed message of "Hello" demonstrating connectivity.
+And a simple input area with a send button (also accepting ctrl-enter for send). A websocket should be created upon webcomponent loading and the area should be made active.
+
+The frontend is rendered as a hovering div in the lower right corner with a fixed size and vertical scroll bar for the message history.
+
+The widget frontend code is served by the widget backend app after building and copying into a dist folder in the widget backend
+
+## Host frontend
+is a web application where index.html pulls in the bundle of the webcomponent and includes the widget.
+The app can have a simple javascript source as well, so that future interactions, such as events can be handled.
+
+## Docs
+Provide instructions on running each project.
+To demonstrate cors, provide a means to run the host independent of the widget.
+
+## Tech
+- use uv and pyproject.toml
+- use py type hints
+- add ruff as dev dependency and add instructions on how to use
+- test the py code w/ ruff
+- create a helper script to build and run all, run-all.sh
+- test the process by running the run-all.sh
+- add .gitignore w usual exemptions, also exclude lock files

@@ -1,0 +1,15 @@
+{
+  "name": "widget-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:backend": "npm run build && mkdir -p ../widget-backend/dist && cp -f dist/widget.js ../widget-backend/dist/widget.js"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.9.2",
+    "webpack": "^5.101.3",
+    "webpack-cli": "^6.0.1"
+  }
+}
