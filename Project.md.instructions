@@ -34,3 +34,7 @@ To demonstrate cors, provide a means to run the host independent of the widget.
 - create a helper script to build and run all, run-all.sh
 - test the process by running the run-all.sh
 - add .gitignore w usual exemptions, also exclude lock files
+
+# More additions
+- Make sure websocket also enforces the origin based on the header value
+- add vscode settings for python, so that main.py imports show correctly in the editor

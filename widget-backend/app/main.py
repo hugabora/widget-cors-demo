@@ -14,6 +14,7 @@ allowed_origins: list[str] = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
 ]
+allowed_origins_set: set[str] = set(allowed_origins)
 
 app.add_middleware(
     CORSMiddleware,
@@ -40,6 +41,11 @@ async def echo(payload: Any = Body(...)) -> Any:
 
 @app.websocket("/chat-echo")
 async def chat_echo(websocket: WebSocket) -> None:
+    origin: str | None = websocket.headers.get("origin")
+    if origin is None or origin not in allowed_origins_set:
+        await websocket.close(code=1008, reason="Origin not allowed")
+        return
+
     await websocket.accept()
     try:
         while True:
